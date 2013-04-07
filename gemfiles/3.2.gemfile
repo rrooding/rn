@@ -1,0 +1,6 @@
+source 'https://rubygems.org'
+
+gem 'activemodel', '~> 3.2.13'
+gem 'rn', :path => '../'
+
+gemspec :path => '../'
