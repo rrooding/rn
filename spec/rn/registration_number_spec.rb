@@ -37,10 +37,10 @@ describe Rn::RegistrationNumber do
     end
   end
 
-  describe '#birthdate' do
+  describe '#birthday' do
     context '< 2000' do
       it 'is extracted' do
-        expect(subject.birthdate).to eq Date.parse('05-10-1986')
+        expect(subject.birthday).to eq Date.parse('05-10-1986')
       end
     end
 
@@ -48,7 +48,7 @@ describe Rn::RegistrationNumber do
       let(:number) { '00100500145' }
 
       it 'is extracted' do
-        expect(subject.birthdate).to eq Date.parse('05-10-2000')
+        expect(subject.birthday).to eq Date.parse('05-10-2000')
       end
     end
 
@@ -56,7 +56,7 @@ describe Rn::RegistrationNumber do
       let(:number) { '10100500161' }
 
       it 'is extracted' do
-        expect(subject.birthdate).to eq Date.parse('05-10-2010')
+        expect(subject.birthday).to eq Date.parse('05-10-2010')
       end
     end
   end

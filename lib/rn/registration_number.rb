@@ -12,8 +12,8 @@ module Rn
       @year, @month, @day, @follow, @control = @number.scan(/\A(\d{2})(\d{2})(\d{2})(\d{3})(\d{2})\z/).flatten
     end
 
-    def birthdate
-      @birthdate ||= parse_birthdate
+    def birthday
+      @birthday ||= parse_birthday
     end
 
     def valid?
@@ -22,7 +22,7 @@ module Rn
 
     private
 
-    def parse_birthdate
+    def parse_birthday
       base = pre_2000_control? ? 1900 : 2000
       Date.new(@year.to_i + base, @month.to_i, @day.to_i)
     end

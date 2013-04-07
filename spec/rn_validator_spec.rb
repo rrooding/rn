@@ -9,6 +9,11 @@ class RnValidatorTest < RnValidatorBase
   validates :number, :rn => true
 end
 
+class RnValidatorBirthday < RnValidatorBase
+  attr_accessor :birthday
+  validates :number, :rn => { :birthday => true }
+end
+
 describe RnValidator do
   subject { RnValidatorTest.new }
 
@@ -83,6 +88,56 @@ describe RnValidator do
 
     it 'adds an error on :number' do
       expect(subject.errors[:number]).to be_present
+    end
+  end
+
+  context 'with birthday check' do
+    subject { RnValidatorBirthday.new }
+
+    before do
+      subject.number = '86100500176'
+    end
+
+    context 'with matching birthday' do
+      before do
+        subject.birthday = Date.parse('05-10-1986')
+      end
+
+      it 'is valid' do
+        expect(subject).to be_valid
+      end
+    end
+
+    context 'with different birthday' do
+      before do
+        subject.birthday = Date.parse('06-10-1986')
+
+        subject.valid?
+      end
+
+      it 'is invalid' do
+        expect(subject).to_not be_valid
+      end
+
+      it 'adds an error on :number' do
+        expect(subject.errors[:number]).to be_present
+      end
+    end
+
+    context 'with empty birthday' do
+      before do
+        subject.birthday = nil
+
+        subject.valid?
+      end
+
+      it 'is invalid' do
+        expect(subject).to_not be_valid
+      end
+
+      it 'adds an error on :number' do
+        expect(subject.errors[:number]).to be_present
+      end
     end
   end
 end
