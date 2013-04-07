@@ -1,5 +1,2 @@
-require "rn/version"
-
-module Rn
-  # Your code goes here...
-end
+require 'rn/version'
+require 'rn/validator'
