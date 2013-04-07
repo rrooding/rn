@@ -8,31 +8,31 @@ describe Rn::RegistrationNumber do
   context 'invalid arguments' do
     describe 'nil' do
       it 'raises an argument error' do
-        expect { described_class.new(nil) }.to raise_error(ArgumentError, 'registration number cannot be empty')
+        expect { described_class.new(nil) }.to raise_error(ArgumentError, 'cannot be empty')
       end
     end
 
     describe 'empty string' do
       it 'raises an argument error' do
-        expect { described_class.new('') }.to raise_error(ArgumentError, 'registration number cannot be empty')
+        expect { described_class.new('') }.to raise_error(ArgumentError, 'cannot be empty')
       end
     end
 
     describe 'with non numeric characters' do
       it 'raises an argument error' do
-        expect { described_class.new('1234567aa89') }.to raise_error(ArgumentError, 'registration number can only contain 0-9')
+        expect { described_class.new('1234567aa89') }.to raise_error(ArgumentError, 'can only contain 0-9')
       end
     end
 
     describe 'too short' do
       it 'raises an argument error' do
-        expect { described_class.new('1234567890') }.to raise_error(ArgumentError, 'registration number must be 11 characters')
+        expect { described_class.new('1234567890') }.to raise_error(ArgumentError, 'must be 11 characters')
       end
     end
 
     describe 'too long' do
       it 'raises an argument error' do
-        expect { described_class.new('123456789012') }.to raise_error(ArgumentError, 'registration number must be 11 characters')
+        expect { described_class.new('123456789012') }.to raise_error(ArgumentError, 'must be 11 characters')
       end
     end
   end

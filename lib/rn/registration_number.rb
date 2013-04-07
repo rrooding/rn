@@ -3,9 +3,9 @@ require 'date'
 module Rn
   class RegistrationNumber
     def initialize(registration_number)
-      raise ArgumentError.new('registration number cannot be empty') if registration_number.nil? || registration_number.empty?
-      raise ArgumentError.new('registration number must be 11 characters') if registration_number.length != 11
-      raise ArgumentError.new('registration number can only contain 0-9') unless (registration_number =~ /\D/).nil?
+      raise ArgumentError.new('cannot be empty') if registration_number.nil? || registration_number.empty?
+      raise ArgumentError.new('must be 11 characters') if registration_number.length != 11
+      raise ArgumentError.new('can only contain 0-9') unless (registration_number =~ /\D/).nil?
 
       @number = registration_number
 
