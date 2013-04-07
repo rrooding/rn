@@ -20,6 +20,4 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'rake'
   gem.add_development_dependency 'rspec'
   gem.add_development_dependency 'guard-rspec'
-
-  gem.add_dependency 'activemodel', '~> 4.0.0.beta1'
 end
