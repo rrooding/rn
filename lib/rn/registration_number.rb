@@ -16,6 +16,10 @@ module Rn
       @birthday ||= parse_birthday
     end
 
+    def sex
+      (@follow.to_i % 2 == 0) ? :female : :male
+    end
+
     def valid?
       pre_2000_control? || post_2000_control?
     end

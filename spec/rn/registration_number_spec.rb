@@ -61,6 +61,22 @@ describe Rn::RegistrationNumber do
     end
   end
 
+  describe '#sex' do
+    context 'male' do
+      it 'returns :male' do
+        expect(subject.sex).to eq :male
+      end
+    end
+
+    context 'female' do
+      let(:number) { '86100500276' }
+
+      it 'returns :female' do
+        expect(subject.sex).to eq :female
+      end
+    end
+  end
+
   describe '#valid?' do
     context '< 2000' do
       context 'valid registration number' do
